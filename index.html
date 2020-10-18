@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script src="chjs1.js"></script>
+        <link rel="stylesheet" href="oxe1.css">
+        <!-- see attributions.html for attributions to resources used -->
+    </head>
+    <body onload="OnLoad()">
+        <div class="board">
+            <script lang="javascript">
+                for (var row = 8; row >= 1; --row) {
+                    document.write("<div class='row'>")
+                    for (var col = '1'; col <= '8'; ++col) {
+                        const pn = GetPositionName(row, col);
+                        const className = ((row - col) % 2 == 0 ? "cell dark" : "cell light");
+                        document.write("<div class='" + className + "'>");
+                        document.write("<div class='pieceHolder' id='" + GetPieceholderID(row, col) + "'></div>");
+//                      document.write(pn);
+                        document.write("</div>")
+                    }
+                    document.write("</div>")
+                }
+            </script>
+        </div>
+        <div style="height:20px"></div>
+        <div>
+            <button onclick="ResetBoardToStockBeginning()">reset</button>
+            <button onclick="FlipBoard()">flip</button>
+        </div>
+    </body>
+</html>
