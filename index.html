@@ -5,22 +5,41 @@
         <!-- see attributions.html for attributions to resources used -->
     </head>
     <body onload="OnLoad()">
-        <div class="board">
-            <script lang="javascript">
-                for (var row = 8; row >= 1; --row) {
-                    document.write("<div class='row'>")
-                    for (var col = '1'; col <= '8'; ++col) {
-                        const pn = GetPositionName(row, col);
-                        const className = ((row - col) % 2 == 0 ? "cell dark" : "cell light");
-                        document.write("<div class='" + className + "'>");
-                        document.write("<div class='pieceHolder' id='" + GetPieceholderID(row, col) + "'></div>");
-//                      document.write(pn);
-                        document.write("</div>")
+        <div id="piecesLayer"></div>
+        <div id="table">
+            <div class="box" id="boardHolder">
+                <div class="board">
+                    <script lang="javascript">
+                        for (var row = 8; row >= 1; --row) {
+                            document.write("<div class='row'>")
+                            for (var col = 1; col <= 8; ++col) {
+                                const pn = GetPositionName(row, col);
+                                const className = ((row - col) % 2 == 0 ? "cell dark" : "cell light");
+                                document.write("<div class='" + className + "' id='" + pn + "'>");
+                                document.write("<span class='cellText'>" + pn + "</span>");
+                                document.write("</div>")
+                            }
+                            document.write("</div>")
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="box" id="pieceBox">
+                <script lang="javascript">
+                    var n = 0;
+                    for (var row = 8; row >= 1; --row) {
+                        document.write("<div class=row>")
+                        for (var col = 1; col <= 4; ++col) {
+                            const name = "pieceBoxCell" + n;
+                            n += 1;
+                            document.write("<div class='pieceBoxCell_' id='" + name + "'></div>");
+                        }
+                        document.write("</div>");
                     }
-                    document.write("</div>")
-                }
-            </script>
+                </script>
+            </div>
         </div>
+
         <div style="height:20px"></div>
         <div>
             <button onclick="ResetBoardToStockBeginning()">reset</button>

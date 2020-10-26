@@ -4,35 +4,66 @@ body {
     font-family: arial, sans-serif;
     font-size: 14px;
   }
-  
 
-
-.board {
+#table {
     display: inline-block;
-    width: 400px;
-    height: 400px;
+    height:640px;
+    width: 900px;
+}
+
+#piecesLayer {
+    position: absolute ;
+    width:100%;
+    height:100%;
+    left: 0;
+    top: 0;
+    x-background-color: rgba(255, 0, 0, .1);
+}
+
+.box {
+    display: inline-block;
     border-radius: 5px;
     border-color: rgba(0, 0, 0, .25);
     border-width: 2px;
     border-style: solid;
     padding: 5px;
     background-color: #89a;
+    vertical-align: top;
+}
 
+.board {
+    width: 640px;
+    height: 100%;
+}
+
+#pieceBox {
+    width: 192px;
+    height: 100%;
+}
+
+.pieceBoxCell {
+    height:100%;
+    width:23%;
+    display: inline-block;
+    border: 1px dotted grey;
+}
+
+.noDisplay {
+    display:none;
 }
 
 .row {
-    width:100%;
     height: 12.5%;
 }
 
 .cell {
-    display: inline-flex;
+    float: left;
     width: 12.5%;
     height: 100%;
-    justify-content: flex-start;
-    align-items: flex-end;
-    position: relative;
+    display: table-cell;
     font-size: 10px;
+    text-align: left;
+    vertical-align: text-bottom;
 }
 
 .cell.dark {
@@ -47,22 +78,10 @@ body {
     background-color:#8e3;
 }
 
-.pieceHolder {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-}
-
-.pieceHolder:hover {
-    background-color: rgba(0, 0, 0, .1);
+.cellText {
+    color: rgba(0, 0, 0, 0.3);
 }
 
 .piece {
-    width: 90%;
-    height: 90%;
+    position: absolute;
 }
